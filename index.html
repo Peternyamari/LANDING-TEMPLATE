@@ -1,307 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Grow Your Business With Smart Funnels — 10Labs</title>
-	<style>
-		:root {
-			--bg-0: #060812;
-			--bg-1: #0b1220;
-			--panel: #0f1a2b;
-			--text: #e6f1ff;
-			--muted: #8aa3c2;
-			--accent-1: #6f3bff;
-			--accent-2: #00e1ff;
-			--accent-3: #ff2ebd;
-			--glow: 0 0 24px rgba(0,225,255,0.25), 0 0 48px rgba(111,59,255,0.18);
-		}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>10 Labs Rentals — Classic Apartment Homes</title>
+    <!-- Inline CSS: classic, clean, trustworthy palette and typography -->
+    <style>
+        /* Root variables for theme colors and spacing */
+        :root {
+            --navy: #0b2340;          /* headers */
+            --gold: #c79a2b;          /* accents */
+            --offwhite: #fbfbfa;      /* page background */
+            --lightgray: #f2f4f6;     /* surfaces */
+            --text: #28323f;          /* body text */
+            --muted: #6b7786;         /* secondary text */
+            --maxw: 1100px;           /* container width */
+            --radius: 10px;           /* card radius */
+            --shadow: 0 8px 20px rgba(11, 35, 64, 0.08);
+        }
 
-		html, body { height: 100%; }
+        /* Global resets */
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: var(--offwhite);
+            color: var(--text);
+        }
+        body {
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: var(--navy);
+            margin: 0 0 0.4rem 0;
+        }
+        p { margin: 0 0 1rem 0; }
 
-		body {
-			margin: 0;
-			font-family: Georgia, serif;
-			color: var(--text);
-			background: radial-gradient(1200px 600px at 10% -10%, rgba(111,59,255,0.18), transparent 60%),
-			radial-gradient(1200px 600px at 110% 10%, rgba(0,225,255,0.18), transparent 60%),
-			radial-gradient(800px 400px at 50% 120%, rgba(255,46,189,0.14), transparent 60%),
-			linear-gradient(180deg, var(--bg-0), var(--bg-1));
-			overflow-x: hidden;
-			position: relative;
-		}
+        /* Layout container */
+        .container {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-		/* Creative FX: subtle grid + animated orb */
-		body::before {
-			content: "";
-			position: fixed;
-			inset: 0;
-			background-image:
-				linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-				linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-			background-size: 28px 28px, 28px 28px;
-			mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.85), transparent 72%);
-			pointer-events: none;
-			z-index: 0;
-		}
-		body::after {
-			content: "";
-			position: fixed;
-			width: 420px; height: 420px;
-			left: 8%; top: 18%;
-			background: radial-gradient(circle at 30% 30%, rgba(0,225,255,0.6), rgba(111,59,255,0.55) 45%, rgba(255,46,189,0.45) 70%, transparent 72%);
-			filter: blur(28px);
-			opacity: 0.35;
-			border-radius: 50%;
-			animation: drift 18s ease-in-out infinite;
-			pointer-events: none;
-			z-index: 0;
-		}
-		@keyframes drift { 0%{transform:translate3d(0,0,0)} 50%{transform:translate3d(18px,-16px,0)} 100%{transform:translate3d(0,0,0)} }
+        /* Header and navigation */
+        header {
+            background: white;
+            border-bottom: 1px solid var(--lightgray);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 16px 0;
+        }
+        .logo {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: var(--navy);
+            font-size: 22px;
+            letter-spacing: 0.3px;
+            font-weight: 700;
+        }
+        .logo img { height: 28px; width: auto; vertical-align: middle; margin-right: 10px; border-radius: 4px; }
+        nav a {
+            color: var(--navy);
+            text-decoration: none;
+            margin-left: 22px;
+            font-weight: 600;
+            position: relative;
+        }
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0; bottom: -2px;
+            width: 0; height: 2px;
+            background: var(--gold);
+            transition: width 180ms ease;
+        }
+        nav a:hover::after { width: 100%; }
 
-		.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        /* Hero section */
+        .hero {
+            background: linear-gradient(180deg, #ffffff 0%, var(--offwhite) 100%);
+            padding: 64px 0 48px;
+        }
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 32px;
+            align-items: center;
+        }
+        .hero h1 {
+            font-size: 42px;
+            line-height: 1.2;
+        }
+        .hero p {
+            color: var(--muted);
+            font-size: 18px;
+        }
+        .cta-row { margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; }
+        .btn {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 999px;
+            border: 1px solid var(--navy);
+            background: var(--navy);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease, color 120ms ease;
+            box-shadow: var(--shadow);
+        }
+        .btn:hover { transform: translateY(-1px); box-shadow: 0 12px 26px rgba(11,35,64,0.14); }
+        .btn.outline { background: white; color: var(--navy); }
+        .btn.outline:hover { background: var(--lightgray); }
 
-		/* Header */
-		header {
-			position: sticky; top: 0; z-index: 2;
-			background: rgba(6, 8, 18, 0.6);
-			backdrop-filter: blur(10px);
-			border-bottom: 1px solid rgba(0,225,255,0.12);
-		}
-		.header-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-		.logo { display: flex; align-items: center; gap: 10px; font-weight: bold; font-size: 18px; }
-		.logo img { height: 36px; max-height: 36px; width: auto; display: block; filter: drop-shadow(0 0 10px rgba(0,225,255,0.35)); }
-		.brand-text { font-weight: 800; font-size: 18px; background: linear-gradient(135deg, var(--accent-2), var(--accent-1)); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: 0 0 18px rgba(0,225,255,0.25); letter-spacing: 0.2px; }
+        /* About section */
+        .about { padding: 40px 0; }
+        .about .card {
+            background: white;
+            border: 1px solid var(--lightgray);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
 
-		nav a {
-			margin-left: 18px; color: var(--muted); text-decoration: none; font-size: 15px; position: relative;
-		}
-		nav a::after { content: ""; position: absolute; left: 0; bottom: -6px; width: 0%; height: 2px; background: linear-gradient(90deg, var(--accent-2), var(--accent-1)); transition: width 0.25s ease; border-radius: 2px; box-shadow: var(--glow); }
-		nav a:hover { color: var(--text); }
-		nav a:hover::after { width: 100%; }
+        /* Listings grid */
+        .listings { padding: 32px 0 64px; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            border: 1px solid var(--lightgray);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: transform 120ms ease, box-shadow 160ms ease;
+            position: relative; /* for micro-tooltip */
+        }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 14px 28px rgba(11,35,64,0.12); }
 
-		/* Hero */
-		.hero { padding: 92px 0 56px; text-align: center; position: relative; z-index: 1; }
-		.hero h1 { margin: 0 0 16px; font-size: clamp(30px, 5.4vw, 46px); line-height: 1.2; text-shadow: 0 2px 0 rgba(0,0,0,0.25); }
-		.hero p { margin: 0 auto 24px; max-width: 720px; color: var(--muted); font-size: 18px; line-height: 1.7; }
-		.hero-media { display: grid; place-items: center; margin-bottom: 22px; }
-		.hero-media img { width: 100%; max-width: 720px; border-radius: 16px; border: 1px solid rgba(0,225,255,0.15); box-shadow: 0 12px 32px rgba(0,0,0,0.35); }
+        /* Micro-interaction: tooltip on hover */
+        .card[data-tip]:hover::after {
+            content: attr(data-tip);
+            position: absolute;
+            top: 10px; right: 10px;
+            background: rgba(11,35,64,0.92);
+            color: white;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            pointer-events: none;
+            box-shadow: var(--shadow);
+        }
 
-		/* Decorative circuit graphic */
-		.circuit {
-			position: absolute;
-			inset: 0 0 auto 0;
-			height: 180px;
-			pointer-events: none;
-			opacity: 0.35;
-			filter: drop-shadow(0 0 16px rgba(0,225,255,0.2));
-		}
+        .media { width: 100%; height: 200px; display: block; object-fit: cover; background: var(--lightgray); }
+        .card-body { padding: 16px 16px 18px; }
+        .title-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+        .title { font-family: Georgia, 'Times New Roman', Times, serif; font-size: 20px; color: var(--navy); }
+        .location { color: var(--muted); font-size: 14px; }
+        .features { display: flex; gap: 10px; color: var(--muted); font-size: 14px; margin: 8px 0 10px; }
+        .price { font-weight: 800; color: var(--navy); }
+        .actions { margin-top: 10px; display: flex; justify-content: space-between; align-items: center; }
 
-		.button { display: inline-block; padding: 13px 24px; background: linear-gradient(135deg, var(--accent-2), var(--accent-1)); color: #06101a; border-radius: 999px; text-decoration: none; font-weight: bold; box-shadow: var(--glow); transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease; }
-		.button:hover { transform: translateY(-2px); filter: brightness(1.05); box-shadow: 0 0 36px rgba(0,225,255,0.32), 0 0 56px rgba(111,59,255,0.24); }
+        /* Footer */
+        footer { border-top: 0; padding: 26px 0; background: var(--navy); color: #e9eef5; }
+        .social a { color: var(--gold); text-decoration: none; margin-right: 16px; }
+        .social a:hover { text-decoration: underline; }
 
-		/* Signup */
-		.signup { padding: 46px 0 28px; position: relative; z-index: 1; }
-		.card { background: linear-gradient(180deg, rgba(15,26,43,0.9), rgba(10,18,34,0.95)); border: 1px solid rgba(0,225,255,0.10); border-radius: 16px; box-shadow: 0 10px 28px rgba(0,0,0,0.35); padding: 26px; position: relative; overflow: hidden; }
-		.card::after { content: ""; position: absolute; top: -40%; right: -20%; width: 60%; height: 200%; background: linear-gradient(135deg, rgba(111,59,255,0.12), rgba(0,225,255,0.12)); transform: rotate(18deg); pointer-events: none; filter: blur(2px); }
-		.signup h2 { margin-top: 0; margin-bottom: 6px; text-align: center; font-size: 26px; }
-		.signup .subnote { text-align: center; color: var(--muted); margin-bottom: 20px; }
-
-		.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
-		.input, .submit { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(0,225,255,0.20); background: rgba(8,14,26,0.7); color: var(--text); font-family: Georgia, serif; font-size: 16px; box-sizing: border-box; transition: box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease; }
-		.input::placeholder { color: #6c87a5; }
-		.input:focus { outline: none; border-color: rgba(0,225,255,0.55); box-shadow: 0 0 0 4px rgba(0,225,255,0.16); background: rgba(8,14,26,0.85); }
-
-		.submit { background: linear-gradient(135deg, var(--accent-2), var(--accent-1)); color: #06101a; border: none; font-weight: bold; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease; box-shadow: var(--glow); }
-		.submit:hover { transform: translateY(-2px); filter: brightness(1.05); box-shadow: 0 0 36px rgba(0,225,255,0.32), 0 0 56px rgba(111,59,255,0.24); }
-
-		.privacy { margin-top: 10px; text-align: center; color: var(--muted); font-size: 14px; }
-
-		/* Testimonials */
-		.testimonials { padding: 46px 0 72px; position: relative; z-index: 1; }
-		.testimonials h3 { text-align: center; margin: 0 0 22px; font-size: 22px; }
-		.testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-		.testimonial-card { background: linear-gradient(180deg, rgba(15,26,43,0.9), rgba(10,18,34,0.95)); border: 1px solid rgba(0,225,255,0.10); border-radius: 16px; box-shadow: 0 10px 28px rgba(0,0,0,0.35); padding: 18px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-		.testimonial-card:hover { transform: translateY(-3px); box-shadow: 0 16px 38px rgba(0,0,0,0.45); }
-		.testimonial-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-		.avatar { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(0,225,255,0.10); box-shadow: var(--glow); overflow: hidden; }
-		.avatar svg { width: 36px; height: 36px; display: block; }
-		.avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
-		.name { font-weight: bold; }
-		.role { color: var(--muted); font-size: 14px; }
-		.quote { color: var(--text); line-height: 1.7; }
-
-		/* Footer */
-		footer { border-top: 1px solid rgba(0,225,255,0.10); padding: 22px 0; color: var(--muted); text-align: center; font-size: 14px; position: relative; z-index: 1; }
-
-		/* Responsive */
-		@media (max-width: 720px) {
-			.header-inner { height: 60px; }
-			nav a { margin-left: 12px; }
-			.hero { padding: 68px 0 36px; }
-			.form-row { grid-template-columns: 1fr; }
-			.testimonial-grid { grid-template-columns: 1fr; }
-		}
-	</style>
+        /* Responsive */
+        @media (max-width: 760px) {
+            .hero-inner { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 28px; }
+            .hero .media { height: 180px; }
+            .grid { grid-template-columns: 1fr; }
+            nav { width: 100%; display: flex; flex-wrap: wrap; gap: 10px; }
+            nav a { margin-left: 0; padding: 8px 0; }
+            .cta-row { flex-direction: column; }
+            .cta-row .btn { width: 100%; text-align: center; }
+            .actions { flex-direction: column; gap: 10px; }
+            .actions .btn { width: 100%; }
+            .nav { gap: 6px; }
+        }
+    </style>
 </head>
 <body>
-	<header>
-		<div class="container header-inner">
-			<div class="logo" aria-label="10Labs logo">
-				<img src="images/Bob10LabsLOGO.png" alt="10Labs logo" />
-				<span class="brand-text">10Labs</span>
-			</div>
-			<nav aria-label="Main navigation">
-				<a href="home.html">Home</a>
-				<a href="about.html">About</a>
-				<a href="contact.html">Contact</a>
-			</nav>
-		</div>
-	</header>
+    <!-- Header: logo and navigation -->
+    <header>
+        <div class="container nav">
+            <div class="logo"><img src="images/Bob10LabsLOGO.png" alt="10 Labs Rentals logo" /><span>10 Labs Rentals</span></div>
+            <nav aria-label="Primary navigation">
+                <a href="#top">Home</a>
+                <a href="#listings">Listings</a>
+                <a href="contact.html">Contact</a>
+                <a href="#resume" title="Download resume">Resume</a>
+            </nav>
+        </div>
+    </header>
 
-	<main id="home" class="container">
-		<section class="hero" aria-labelledby="headline">
-			<svg class="circuit" viewBox="0 0 900 180" preserveAspectRatio="none" aria-hidden="true">
-				<defs>
-					<linearGradient id="gradLine" x1="0%" y1="0%" x2="100%" y2="0%">
-						<stop offset="0%" stop-color="rgba(0,225,255,0.8)" />
-						<stop offset="100%" stop-color="rgba(111,59,255,0.8)" />
-					</linearGradient>
-				</defs>
-				<g fill="none" stroke="url(#gradLine)" stroke-width="2">
-					<path d="M20 160 H200 V60 H350 V120 H520 V40 H760"/>
-					<circle cx="200" cy="60" r="4" fill="url(#gradLine)"/>
-					<circle cx="350" cy="120" r="4" fill="url(#gradLine)"/>
-					<circle cx="520" cy="40" r="4" fill="url(#gradLine)"/>
-					<circle cx="760" cy="40" r="4" fill="url(#gradLine)"/>
-				</g>
-			</svg>
-			<h1 id="headline">Grow Your Business With Smart Funnels</h1>
-			<p>This demo funnel showcases how thoughtful design, crisp graphics, and reliable development systems come together to convert attention into action.</p>
-			<div class="hero-media">
-				<img src="images/play1.jpg" alt="10Labs futuristic workspace preview" />
-			</div>
-			<a href="#signup" class="button" id="cta-button">Join Free Demo</a>
-		</section>
+    <!-- Hero: primary headline and calls to action -->
+    <section class="hero" id="top">
+        <div class="container hero-inner">
+            <div>
+                <h1>Classic Rentals — Thoughtfully Designed Apartments</h1>
+                <p>Kenya-based rentals with enduring finishes and practical layouts. Built with care, managed with integrity, and presented with a focus on the details that make a home feel right.</p>
+                <div class="cta-row">
+                    <a class="btn" href="#listings">View Listings</a>
+                    <a class="btn outline" href="contact.html">Schedule a Viewing</a>
+                </div>
+            </div>
+            <!-- Hero image from your images folder -->
+            <img class="media" alt="Nairobi apartment interior" src="images/play1.jpg" data-fallback="images/play2.jpg,images/apt1.jpeg,images/41679570.jpg,images/42138135.jpg,images/images.jpeg" />
+        </div>
+    </section>
 
-		<section id="signup" class="signup">
-			<div class="card">
-				<h2>Get Instant Access</h2>
-				<p class="subnote">Join our free walkthrough on building clear offers, visual credibility, and scalable systems.</p>
+    <!-- About: author/designer note -->
+    <section class="about">
+        <div class="container">
+            <div class="card">
+                <h2>About This Demo</h2>
+                <p>I’m a designer–developer focused on building clear, trustworthy interfaces. This demo showcases a classic rentals brand with a careful typographic system, lean code, and maintainable structure—no frameworks, just semantic HTML, modern CSS, and a touch of vanilla JavaScript.</p>
+            </div>
+        </div>
+    </section>
 
-				<!-- Replace the contents of #mailchimp-form with your Mailchimp embed code -->
-				<div id="mailchimp-form">
-					<form action="https://gmail.us12.list-manage.com/subscribe/post?u=346599ea66d9bacc2db2e008f&amp;id=044ae0fa48&amp;f_id=00af0fe9f0" method="post" target="_blank" novalidate>
-						<div class="form-row">
-							<input class="input" type="text" name="FNAME" id="mce-FNAME" placeholder="Your Name" aria-label="Your Name" />
-							<input class="input" type="email" name="EMAIL" id="mce-EMAIL" placeholder="Your Email" aria-label="Your Email" required />
-						</div>
+    <!-- Listings: three sample apartments -->
+    <section class="listings" id="listings">
+        <div class="container">
+            <h2>Available Residences</h2>
+            <p class="location" style="margin-bottom: 16px;">Select homes with light, proportion, and convenience.</p>
+            <div class="grid">
+                <!-- Card 1: 1 Bedroom — KSh 20,000/mo -->
+                <article class="card" data-tip="Great light • Hardwood floors">
+                    <a href="property.html?id=1" style="text-decoration:none; color:inherit; display:block;">
+                        <!-- Local image: Kilimani 1 bedroom -->
+                        <img class="media" alt="Kilimani Nairobi 1 bedroom apartment" src="images/066c46bc46ded6-modern-1-bedroom-apartment-in-kilimani-for-rent-kilimani-nairobi.jpg" data-fallback="images/apt1.jpeg,images/images (1).jpeg,images/41679570.jpg" />
+                        <div class="card-body">
+                            <div class="title-row">
+                                <div>
+                                    <div class="title">The Karura Residence</div>
+                                    <div class="location">Kilimani, Nairobi</div>
+                                </div>
+                                <div class="price">KSh 20,000/mo</div>
+                            </div>
+                            <div class="features"><span>1 Bed</span><span>1 Bath</span><span>55 sqm</span></div>
+                            <div class="actions">
+                                <a class="btn outline" href="property.html?id=1">View Details</a>
+                            </div>
+                        </div>
+                    </a>
+                </article>
 
-						<div id="mce-responses" class="clear foot" style="margin-top:8px">
-							<div class="response" id="mce-error-response" style="display:none;color:#ff8080"></div>
-							<div class="response" id="mce-success-response" style="display:none;color:#7dffa5"></div>
-						</div>
+                <!-- Card 2: 2 Bedroom — KSh 27,000/mo -->
+                <article class="card" data-tip="Corner layout • Close to shops">
+                    <a href="property.html?id=2" style="text-decoration:none; color:inherit; display:block;">
+                        <!-- Local image: 2 bedroom -->
+                        <img class="media" alt="Westlands Nairobi 2 bedroom apartment" src="images/modern-2-bedroom-fully-furnished-apartment-plus-dsq-to-let-in-kilimani-hxljd.jpg" data-fallback="images/nairobi-astoria-apartments-lavington-photo-13.jpeg,images/42138135.jpg,images/images (2).jpeg" />
+                        <div class="card-body">
+                            <div class="title-row">
+                                <div>
+                                    <div class="title">Riverside Court</div>
+                                    <div class="location">Westlands, Nairobi</div>
+                                </div>
+                                <div class="price">KSh 27,000/mo</div>
+                            </div>
+                            <div class="features"><span>2 Bed</span><span>1 Bath</span><span>85 sqm</span></div>
+                            <div class="actions">
+                                <a class="btn outline" href="property.html?id=2">View Details</a>
+                            </div>
+                        </div>
+                    </a>
+                </article>
 
-						<!-- honeypot (do not remove) -->
-						<div aria-hidden="true" style="position:absolute;left:-5000px;">
-							<input type="text" name="b_346599ea66d9bacc2db2e008f_044ae0fa48" tabindex="-1" value="" />
-						</div>
+                <!-- Card 3: Airbnb — KSh 6,000/night -->
+                <article class="card" data-tip="Near the beach • Flexible stays">
+                    <a href="property.html?id=3" style="text-decoration:none; color:inherit; display:block;">
+                        <!-- Local image: Airbnb -->
+                        <img class="media" alt="Nyali Mombasa coastal apartment Airbnb" src="images/play2.jpg" data-fallback="images/502149776.jpg,images/images (3).jpeg,images/images (4).jpeg" />
+                        <div class="card-body">
+                            <div class="title-row">
+                                <div>
+                                    <div class="title">Seaside Loft (Airbnb)</div>
+                                    <div class="location">Nyali, Mombasa</div>
+                                </div>
+                                <div class="price">KSh 6,000/night</div>
+                            </div>
+                            <div class="features"><span>1 Bed</span><span>1 Bath</span><span>50 sqm</span></div>
+                            <div class="actions">
+                                <a class="btn outline" href="property.html?id=3">View Details</a>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
 
-						<!-- Optional UTM capture -->
-						<input type="hidden" name="UTM_SOURCE" id="utm_source" />
-						<input type="hidden" name="UTM_MEDIUM" id="utm_medium" />
-						<input type="hidden" name="UTM_CAMPAIGN" id="utm_campaign" />
+    <!-- Footer -->
+    <footer>
+        <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap: wrap; gap: 10px;">
+            <div>© <span id="year"></span> 10 Labs Rentals</div>
+            <div class="social">
+                <a href="index.html" aria-label="Home">Home</a>
+                <a href="index.html#listings" aria-label="Listings">Listings</a>
+                <a href="contact.html" aria-label="Contact">Contact</a>
+            </div>
+        </div>
+    </footer>
 
-						<button class="submit" type="submit" id="mc-embedded-subscribe">Get Access</button>
-					</form>
-				</div>
+    <!-- Inline JS: smooth scrolling, dynamic year -->
+    <script>
+        // Image fallback: if an image fails to load, cycle through provided fallbacks
+        function attachImageFallbacks() {
+            const imgs = document.querySelectorAll('img[data-fallback]');
+            imgs.forEach(function(img){
+                const list = img.getAttribute('data-fallback').split(',').map(function(s){ return s.trim(); }).filter(Boolean);
+                if (!list.length) return;
+                let idx = 0;
+                img.addEventListener('error', function onErr(){
+                    if (idx < list.length) {
+                        img.src = list[idx++];
+                    } else {
+                        img.removeEventListener('error', onErr);
+                    }
+                });
+            });
+        }
 
-				<p class="privacy">We respect your privacy. No spam.</p>
-			</div>
-		</section>
+        attachImageFallbacks();
+        // Smooth scroll for on-page anchors
+        document.addEventListener('click', function(e) {
+            const link = e.target.closest('a[href^="#"]');
+            if (!link) return;
+            const id = link.getAttribute('href');
+            if (id.length > 1) {
+                const target = document.querySelector(id);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
 
-		<section id="about" class="testimonials" aria-labelledby="testimonial-heading">
-			<h3 id="testimonial-heading">What creators and founders say</h3>
-			<div class="testimonial-grid">
-				<article class="testimonial-card">
-					<div class="testimonial-header">
-						<div class="avatar" aria-hidden="true">
-							<img src="images/play2.jpg" alt="Client avatar" />
-						</div>
-						<div>
-							<div class="name">Ava Thompson</div>
-							<div class="role">Brand Designer</div>
-						</div>
-					</div>
-					<p class="quote">“The layout is clean, the message is focused, and the visual details build trust. This is exactly how I present new offers.”</p>
-				</article>
-
-				<article class="testimonial-card">
-					<div class="testimonial-header">
-						<div class="avatar" aria-hidden="true">
-							<!-- keep a robo svg for variety -->
-							<svg viewBox="0 0 64 64">
-								<rect x="14" y="18" width="36" height="28" rx="6" ry="6" fill="rgba(0,225,255,0.15)" stroke="#00e1ff"/>
-								<circle cx="26" cy="32" r="4" fill="#00e1ff"/>
-								<circle cx="38" cy="32" r="4" fill="#00e1ff"/>
-								<rect x="22" y="40" width="20" height="4" rx="2" fill="#6f3bff"/>
-								<rect x="30" y="12" width="4" height="8" fill="#6f3bff"/>
-							</svg>
-						</div>
-						<div>
-							<div class="name">Jordan Lee</div>
-							<div class="role">Marketing Consultant</div>
-						</div>
-					</div>
-					<p class="quote">“Smart funnels simplify decisions. The call to action, social proof, and structure make it easy for visitors to say yes.”</p>
-				</article>
-
-				<article class="testimonial-card">
-					<div class="testimonial-header">
-						<div class="avatar" aria-hidden="true">
-							<!-- keep cube svg for variety -->
-							<svg viewBox="0 0 64 64">
-								<rect x="14" y="14" width="36" height="36" rx="8" ry="8" fill="rgba(111,59,255,0.18)" stroke="#6f3bff"/>
-								<circle cx="26" cy="30" r="4" fill="#6f3bff"/>
-								<circle cx="38" cy="30" r="4" fill="#6f3bff"/>
-								<path d="M22 42 Q32 48 42 42" stroke="#00e1ff" stroke-width="2" fill="none"/>
-							</svg>
-						</div>
-						<div>
-							<div class="name">Casey Morgan</div>
-							<div class="role">Systems Developer</div>
-						</div>
-					</div>
-					<p class="quote">“The build is lightweight and dependable. Clear components, minimal JS, and a layout that adapts on any device.”</p>
-				</article>
-			</div>
-		</section>
-	</main>
-
-	<footer>
-		<div class="container">© 2025 10Labs – Design • Graphics • System Dev</div>
-	</footer>
-
-	<script>
-		// Smooth scroll for the CTA button
-		document.getElementById('cta-button')?.addEventListener('click', function (e) {
-			e.preventDefault();
-			const target = document.getElementById('signup');
-			if (!target) return;
-			target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-		});
-	</script>
-	<script src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-	<script>
-		(function($){window.fnames=[];window.ftypes=[];fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';})(jQuery);
-		var $mcj=jQuery.noConflict(true);
-		(function(){
-			const p=new URLSearchParams(location.search);
-			const set=(id,k)=>{const el=document.getElementById(id); if(el) el.value=p.get(k)||'';};
-			set('utm_source','utm_source');
-			set('utm_medium','utm_medium');
-			set('utm_campaign','utm_campaign');
-		})();
-	</script>
+        // Current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
+
+
